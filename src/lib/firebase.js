@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase } from 'firebase/database';
+import { getDatabase, ref, set, update, onValue, get, remove, serverTimestamp } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -14,3 +14,4 @@ const firebaseConfig = {
 export const firebaseEnabled = Boolean(firebaseConfig.apiKey && firebaseConfig.databaseURL);
 export const app = firebaseEnabled ? initializeApp(firebaseConfig) : null;
 export const db = firebaseEnabled ? getDatabase(app) : null;
+export { ref, set, update, onValue, get, remove, serverTimestamp };
